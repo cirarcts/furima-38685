@@ -69,8 +69,6 @@ TOPページ
 | first_name         | string | null: false               |
 | last_name_ruby     | string | null: false               |
 | first_name_ruby    | string | null: false               |
-| year_of_birth      | date   | null: false               |
-| month_of_birth     | date   | null: false               |
 | date_of_birth      | date   | null: false               |
 
 ### Association
