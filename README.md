@@ -82,10 +82,10 @@ TOPページ
 | ---------------- | ---------- | ------------------------------ |
 | product_name     | string     | null: false                    |
 | explanation      | text       | null: false                    |
-| category_id      | string     | null: false                    |
-| condition_id     | string     | null: false                    |
+| category_id      | integer    | null: false                    |
+| condition_id     | integer    | null: false                    |
 | shipping_cost_id | integer    | null: false                    |
-| prefecture_id    | string     | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | shipping_date_id | integer    | null: false                    |
 | price            | integer    | null: false                    |
 | user             | references | null: false, foreign_key: true |
@@ -99,26 +99,25 @@ TOPページ
 
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
-| nickname | string     | null: false                    |
 | item     | references | null: false, foreign_key: true |
 | user     | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :item
+- belongs_to :item
 - has_many :shippings
 
 ## shippings テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| postal_code    | text       | null: false                    |
-| prefecture     | string     | null: false                    |
+| postal_code    | string     | null: false                    |
+| prefecture_id  | integer    | null: false                    |
 | municipalities | string     | null: false                    |
-| house_number   | text       | null: false                    |
-| building_name  | text       |                                |
-| phone_number   | integer    | null: false                    |
+| house_number   | string     | null: false                    |
+| building_name  | string     |                                |
+| phone_number   | string     | null: false                    |
 | buy            | references | null: false, foreign_key: true |
 
 ### Association
