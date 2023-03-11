@@ -78,17 +78,17 @@ TOPページ
 
 ## items テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| product_name  | text       | null: false                    |
-| explanation   | text       | null: false                    |
-| category      | string     | null: false                    |
-| condition     | string     | null: false                    |
-| shipping_cost | integer    | null: false                    |
-| prefecture    | string     | null: false                    |
-| shipping_date | integer    | null: false                    |
-| price         | integer    | null: false                    |
-| user          | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| product_name     | string     | null: false                    |
+| explanation      | text       | null: false                    |
+| category_id      | string     | null: false                    |
+| condition_id     | string     | null: false                    |
+| shipping_cost_id | integer    | null: false                    |
+| prefecture_id    | string     | null: false                    |
+| shipping_date_id | integer    | null: false                    |
+| price            | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 
