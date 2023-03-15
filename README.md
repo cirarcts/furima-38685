@@ -106,7 +106,7 @@ TOPページ
 
 - belongs_to :user
 - belongs_to :item
-- has_many :shippings
+- has_one :shippings
 
 ## shippings テーブル
 
