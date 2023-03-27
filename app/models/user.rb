@@ -13,9 +13,10 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 } , format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
             # パスワードは6文字以上、半角英数字を含む入力必須
 
-  validates :last_name, :first_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ }
-            # 全角（漢字・平仮名・片仮名でのいずれか）の入力必須
+  validates :last_name, :first_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥ー]+\z/ }
+            # 全角（漢字・ひらがな・カタカナでのいずれか）の入力必須
 
   validates :last_name_ruby, :first_name_ruby, presence: true, format: { with: /\A[ァ-ヶー]+\z/ }
-            # 全角片仮名での入力必須
+            # 全角カタカナでの入力必須
 end
+
