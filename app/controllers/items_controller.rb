@@ -5,4 +5,9 @@ class ItemsController < ApplicationController
 
   def new
   end
+
+  private
+  def item_params
+    params.require(:item).permit(:product_name, :image),merge(user_id: current_user.id)
+  end
 end
