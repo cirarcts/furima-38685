@@ -61,6 +61,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-rails'
 gem 'devise'
 gem 'mail', '2.7.1'
+gem 'active_hash'
 
 group :production do
   gem 'pg'
