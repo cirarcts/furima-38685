@@ -58,9 +58,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'mail', '2.7.1'
 gem 'pry-rails'
 gem 'devise'
-gem 'mail', '2.7.1'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+gem 'active_hash'
 
 group :production do
   gem 'pg'
