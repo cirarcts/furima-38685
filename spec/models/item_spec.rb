@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe 'ユーザー新規登録' do
     context 'できる場合（正常系）' do
-      it '必要な情報（image,product_name,explanation,category_id,condition_id,shipping_cost_id,prefecture_id,shipping_date_id,price）が全て存在すれば登録できる' do
+      it '必要な情報が全て存在すれば登録できる' do
         expect(@item).to be_valid
       end
     end
@@ -61,32 +61,32 @@ RSpec.describe Item, type: :model do
       it 'priceの値が300より小さい場合、登録できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price must be greater than or equal to 300"
+        expect(@item.errors.full_messages).to include 'Price must be greater than or equal to 300'
       end
       it 'priceの値が9999999より大きい場合、登録できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price must be less than or equal to 9999999"
+        expect(@item.errors.full_messages).to include 'Price must be less than or equal to 9999999'
       end
       it 'priceの値が全角数値の場合、登録できない' do
         @item.price = '３００'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price is not a number"
+        expect(@item.errors.full_messages).to include 'Price is not a number'
       end
       it 'priceの値が全角文字列の場合、登録できない' do
         @item.price = 'あいうえお'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price is not a number"
+        expect(@item.errors.full_messages).to include 'Price is not a number'
       end
       it 'priceの値が半角文字列の場合、登録できない' do
         @item.price = 'aiueo'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price is not a number"
+        expect(@item.errors.full_messages).to include 'Price is not a number'
       end
       it 'itemはuserが紐づいていない場合、登録できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include "User must exist"
+        expect(@item.errors.full_messages).to include 'User must exist'
       end
     end
   end
