@@ -64,7 +64,7 @@
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>
-          <td class="detail-value"><%= Condition.find(@item.condition_id).name %></td>
+          <td class="detail-value"><%= ShippingCost.find(@item.shipping_cost_id).name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送元の地域</th>
