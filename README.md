@@ -1,5 +1,6 @@
 # 各画面のエンティティリスト
-TOPページ
+
+TOP ページ
 
 新規登録画面
 ・ニックネーム
@@ -74,7 +75,7 @@ TOPページ
 ### Association
 
 - has_many :items
-- has_many :buys
+- has_many :orders
 
 ## items テーブル
 
@@ -93,14 +94,14 @@ TOPページ
 ### Association
 
 - belongs_to :user
-- has_one :buy
+- has_one :order
 
-# buys テーブル
+# orders テーブル
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| item     | references | null: false, foreign_key: true |
-| user     | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -118,8 +119,8 @@ TOPページ
 | house_number   | string     | null: false                    |
 | building_name  | string     |                                |
 | phone_number   | string     | null: false                    |
-| buy            | references | null: false, foreign_key: true |
+| order          | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :buy
+- belongs_to :order
