@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_date
   belongs_to :user
+  has_one :order
   has_one_attached :image
 
   # 空の状態では値を保存しない
