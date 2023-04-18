@@ -11,10 +11,11 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order_shipping = OrderShipping.new(order_params)
-    if @order_shipping.valid?
+    @order_shipping = Item.find(params[:item_id])
+    @order = OrderShipping.new(order_params)
+    if @order.valid?
       pay_item
-      @order_shipping.save
+      @order.save
       return redirect_to root_path
     else
       render 'index'
