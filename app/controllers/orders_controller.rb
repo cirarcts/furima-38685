@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: :index
+  before_action :set_order_shipping, only: [:index, :create]
 
   def index
-    @order_shipping = Item.find(params[:item_id])
     if current_user == @order_shipping.user || @order_shipping.order.present?
       redirect_to root_path
     else
@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order_shipping = Item.find(params[:item_id])
     @order = OrderShipping.new(order_params)
     if @order.valid?
       pay_item
@@ -29,6 +28,10 @@ class OrdersController < ApplicationController
                                            :municipalities, :house_number, :building_name, :phone_number).merge(
                                              token: params[:token], user_id: current_user.id, item_id: params[:item_id]
                                            )
+  end
+
+  def set_order_shipping
+    @order_shipping = Item.find(params[:item_id])
   end
 
   def pay_item
