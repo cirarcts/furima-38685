@@ -2,42 +2,7 @@
 <div class='main'>
   <div class='item-contents'>
     <h2 class='subtitle'>商品をお探しですか？</h2>
-
-    <ul class='item-lists'>
-      <% if @search_alert %>
-        <p><%= @search_alert %></p>
-      <% elsif @items.present? %>
-        <% @items.each do |item| %>
-          <li class='list'>
-            <div class='item-img-content'>
-              <%= image_tag item.image, class: "item-img" %>
-
-              <% if item.order.present? %>
-                <div class='sold-out'>
-                  <span>Sold Out!!</span>
-                </div>
-              <% end %>
-
-            </div>
-
-            <div class='item-info'>
-              <h3 class='item-name'>
-                <%= item.product_name %>
-              </h3>
-              <div class='item-price'>
-                <span><%= item.price %>円<br><%= ShippingCost.find(item.shipping_cost_id).name %></span>
-                <div class='star-btn'>
-                  <%= image_tag "star.png", class:"star-icon" %>
-                  <span class='star-count'>0</span>
-                </div>
-              </div>
-            </div>
-          </li>
-        <% end %>
-      <% else %>
-        <p>検索結果が見つかりませんでした。</p>
-      <% end %>
-    </ul>
+    <p><%= @search_alert %></p>
   </div>
 </div>
 <%= render "shared/footer" %>
