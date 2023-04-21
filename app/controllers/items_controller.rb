@@ -44,9 +44,9 @@ class ItemsController < ApplicationController
 
   def search
     if params[:search].present?
-    @items = Item.search(params[:search])
+      @items = Item.search(params[:search])
     else
-      @search_alert = "キーワードを入力して、商品を検索しましょう！"
+      @search_alert = 'キーワードを入力して、商品を検索しましょう！'
       @items = []
     end
   end

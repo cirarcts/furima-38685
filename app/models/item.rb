@@ -22,7 +22,7 @@ class Item < ApplicationRecord
   validates :price, format: { with: /\A[0-9]+\z/ }
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Item.where('product_name LIKE(?)', "%#{search}%")
     else
       Item.all
