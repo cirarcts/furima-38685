@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :search]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
@@ -43,7 +43,12 @@ class ItemsController < ApplicationController
   end
 
   def search
+    if params[:search].present?
     @items = Item.search(params[:search])
+    else
+      @search_alert = "キーワードを入力して、商品を検索しましょう！"
+      @items = []
+    end
   end
 
   private
