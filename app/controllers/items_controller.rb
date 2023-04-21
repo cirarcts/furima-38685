@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, except: [:index, :new, :create, :search]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.order('created_at DESC')
+    @items = Item.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -40,6 +40,15 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     redirect_to root_path
+  end
+
+  def search
+    if params[:search].present?
+      @items = Item.search(params[:search])
+    else
+      @search_alert = 'キーワードを入力して、商品を検索しましょう！'
+      @items = []
+    end
   end
 
   private
