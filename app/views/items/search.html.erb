@@ -1,14 +1,12 @@
 <% if @search_alert %>
   <%= render "items/search_alert" %>
-<% end %>
+<% elsif @items.present? %>
+  <%= render "shared/header" %>
+  <div class='main'>
+    <div class='item-contents'>
+      <h2 class='subtitle'>商品検索結果</h2>
 
-<%= render "shared/header" %>
-<div class='main'>
-  <div class='item-contents'>
-    <h2 class='subtitle'>商品検索結果</h2>
-
-    <ul class='item-lists'>
-      <% if @items.present? %>
+      <ul class='item-lists'>
         <% @items.each do |item| %>
           <li class='list'>
             <div class='item-img-content'>
@@ -36,10 +34,8 @@
             </div>
           </li>
         <% end %>
-      <% else %>
-        <p>検索結果が見つかりませんでした。</p>
-      <% end %>
-    </ul>
+      </ul>
+    </div>
   </div>
-</div>
-<%= render "shared/footer" %>
+  <%= render "shared/footer" %>
+<% end %>
