@@ -3,7 +3,14 @@
 }
 
 .top-page-header {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background-color: #f8f8f8;
+  height: 15vh;
   width: 100vw;
+  border-bottom: #333333;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;
   padding: 2vh 15vw;
   display: flex;
   flex-direction: column;
@@ -27,7 +34,7 @@
   margin-bottom: 5px;
 }
 
-.search-form>.input-box {
+.search-form > .input-box {
   width: 100%;
   height: 5vh;
   padding-left: 10px;
@@ -57,7 +64,6 @@
 .lists-left {
   display: flex;
   min-width: 200px;
-
 }
 
 .category-list {
@@ -77,14 +83,12 @@
   align-items: flex-end;
 }
 
-
 .user-nickname {
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
   font-weight: bold;
 }
-
 
 .logout {
   text-decoration: none;
