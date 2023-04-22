@@ -39,5 +39,7 @@
       </ul>
     </div>
   </div>
-  <%= render "shared/search-footer" %>
+<% else %>
+  <%= render "items/search_nohit" %>
 <% end %>
+<%= render "shared/search-footer" %>
